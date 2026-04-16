@@ -1,0 +1,78 @@
+---
+const testimonios = [
+  {
+    texto:
+      "El cambio en mi oficina fue inmediato. Ahora los procesos fluyen y mi equipo está más motivado.",
+    nombre: "Elena Valdes",
+    cargo: "Directora Creativa",
+    theme: "light",
+  },
+  {
+    texto:
+      "La planificación de mis taxes y seguros me quitó un peso de encima. Son extremadamente profesionales.",
+    nombre: "Carlos Ruiz",
+    cargo: "Empresario Logístico",
+    theme: "dark",
+  },
+  {
+    texto:
+      "Los talleres de ansiedad me dieron herramientas que uso a diario. Una inversión en mi salud mental.",
+    nombre: "Mariana Soler",
+    cargo: "Freelance",
+    theme: "light",
+  },
+]
+---
+
+<section id="testimonios" class="max-w-7xl mx-auto px-6 md:px-10 py-24">
+  <div
+    class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4"
+  >
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      Historias de <br />
+      <span class="text-indigo-600">Transformación</span>
+    </h2>
+    <p
+      class="text-gray-400 font-medium text-sm md:text-base border-l-2 border-indigo-100 pl-4"
+    >
+      Basado en +100 casos en Miami
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    {
+      testimonios.map((item) => (
+        <div
+          class={`p-10 rounded-[35px] transition-all duration-500 hover:-translate-y-3 shadow-xl ${
+            item.theme === "dark"
+              ? "bg-[#1a1c2e] text-white shadow-indigo-900/20"
+              : "bg-white text-[#1a1c2e] border border-gray-100 shadow-gray-200/50"
+          }`}
+        >
+          <span
+            class={`text-4xl block mb-6 ${item.theme === "dark" ? "text-indigo-400" : "text-indigo-200"}`}
+          >
+            “
+          </span>
+
+          <p
+            class={`italic mb-8 leading-relaxed ${item.theme === "dark" ? "text-gray-300" : "text-gray-500"}`}
+          >
+            "{item.texto}"
+          </p>
+
+          <div class="mt-auto">
+            <p class="font-bold text-sm tracking-wide uppercase">
+              {item.nombre}
+            </p>
+            <p
+              class={`text-xs mt-1 font-semibold ${item.theme === "dark" ? "text-indigo-400" : "text-indigo-500"}`}
+            >
+              {item.cargo}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

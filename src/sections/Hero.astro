@@ -1,0 +1,32 @@
+---
+const questions = [
+  "¿Te has sentido abrumado por el desorden en tu entorno y en tu mente?",
+  "¿Te has dado cuenta que el dinero se escapa sin un plan claro?",
+  "¿Has pensado que necesitas herramientas para manejar tu ansiedad?",
+]
+---
+
+<section
+  class="bg-gradient-to-b from-[#f0f2ff] to-white pt-40 pb-24 px-6 text-center"
+>
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+      Transforma tu espacio, <span class="text-indigo-600">tu identidad</span> y tu
+      vida
+    </h1>
+
+    <p class="text-xl text-gray-500 mb-10 italic">
+      "Un camino guiado para descubrir lo que necesitas hoy"
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-4 mt-16">
+      {
+        questions.map((question) => (
+          <div class="p-6 bg-white/50 backdrop-blur-sm rounded-2xl border border-indigo-50 italic text-sm shadow-sm flex items-center justify-center">
+            {question}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

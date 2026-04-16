@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets"
+import logo from "../assets/logo.png"
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="py-12 border-t border-gray-100 bg-white">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+    <a
+      href="/"
+      class="flex items-center justify-center transition-opacity hover:opacity-80"
+    >
+      <Image
+        src={logo}
+        alt="Miami Transformation Logo"
+        class="w-32 md:w-40 h-auto object-contain"
+        loading="eager"
+      />
+    </a>
+
+    <p class="text-gray-400 text-sm font-medium tracking-wide">
+      © {currentYear} Miami Lifestyle & Business Consulting.
+      <span class="block md:inline mt-2 md:mt-0"
+        >Todos los derechos reservados.</span
+      >
+    </p>
+
+    <div
+      class="flex justify-center gap-6 mt-6 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-300"
+    >
+      <a href="#" class="hover:text-indigo-600 transition-colors">Privacidad</a>
+      <a href="#" class="hover:text-indigo-600 transition-colors">Términos</a>
+      <a href="#" class="hover:text-indigo-600 transition-colors">Cookies</a>
+    </div>
+  </div>
+</footer>
