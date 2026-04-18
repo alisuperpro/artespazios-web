@@ -58,7 +58,21 @@ const {
         title: "Resultados",
         items: ["Menos incertidumbre", "Estabilidad y claridad total"]
       }
-    }
+    },
+    {
+      title: "Bienestar y Ansiedad",
+      description: "Acompañamiento práctico para manejar sobrecarga, ansiedad y transición.",
+      buttonText: "Agendar sesión",
+      highlighted: false,
+      includes: {
+        title: "Incluye",
+        items: ["Sesiones de claridad emocional", "Herramientas de regulación", "Rutinas de estabilidad"]
+      },
+      results: {
+        title: "Resultados",
+        items: ["Más calma,","Más enfoque", "Más estabilidad"]
+      }
+    },
   ]
 } = Astro.props;
 ---
@@ -113,7 +127,7 @@ const {
               {service.includes.items.map((item) => (
                 <li class="flex items-start gap-2">
                   <span class={service.highlighted ? 'text-dorado' : 'text-terracota'}>•</span>
-                  <span>{item}</span>
+                  <span class={service.highlighted ? '' : 'text-black/70'}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -128,7 +142,7 @@ const {
               {service.results.items.map((item) => (
                 <li class="flex items-start gap-2">
                   <span class={service.highlighted ? 'text-dorado' : 'text-terracota'}>•</span>
-                  <span>{item}</span>
+                  <span class={service.highlighted ? '' : ''}>{item}</span>
                 </li>
               ))}
             </ul>

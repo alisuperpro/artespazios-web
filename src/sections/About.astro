@@ -1,77 +1,65 @@
 ---
-// SobreMi.astro con props
-export interface Credential {
-  text: string
-}
-
-export interface Props {
-  id?: string
-  name?: string
-  title?: string
-  role?: string
-  experience?: string
-  description?: string
-  imageUrl?: string
-  imageAlt?: string
-  credentials?: Credential[]
-}
-
-const {
-  id = "sobre-mi",
-  name = "Rafaela Sallustio",
-  title = "Sobre mí",
-  role = "ingeniera industrial",
-  experience = "más de 20 años de experiencia en planificación y sistemas organizacionales",
-  description = "Artespazios nace de integrar mi formación técnica con mi propio camino personal: ordenar espacios, estabilizar procesos y reconstruir bienestar desde lo esencial.",
-  imageUrl = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
-  imageAlt = "Rafaela Sallustio - Fundadora de Artespazios",
-  credentials = [
-    { text: "Ingeniería Industrial" },
-    { text: "Planificación Técnica" },
-    { text: "Docencia Universitaria" },
-    { text: "Sistemas de Orden" },
-  ],
-} = Astro.props
+// SobreMi.astro
+// Sección "Sobre Mí" con información personal, foto y credenciales
 ---
 
-<section id={id} class="py-24 px-6 max-w-7xl mx-auto">
-  <div class="flex flex-col md:flex-row gap-16 items-center">
-    <!-- Columna izquierda - Foto con marco decorativo -->
-    <div class="md:w-1/2">
-      <div class="relative">
+<section id="sobre-mi" class="py-32 px-6 bg-white border-y border-beige/50">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+    <!-- Columna izquierda - Información personal (en móvil aparece abajo) -->
+    <div class="order-2 md:order-1">
+      <h2
+        class="text-terracota font-bold uppercase tracking-widest text-xs mb-4"
+      >
+        Autoridad + Humanidad
+      </h2>
+      <h3 class="text-4xl md:text-5xl font-bold mb-8 text-piedra">Sobre mí</h3>
+
+      <div class="space-y-6 text-piedra/80 leading-relaxed">
+        <p class="text-xl font-medium text-piedra">
+          Soy <span class="text-terracota">Rafaela Sallustio</span>, ingeniera
+          industrial con más de 20 años de experiencia en planificación y
+          sistemas organizacionales.
+        </p>
+
+        <p>
+          Mi trayectoria incluye planificación, procesos, docencia universitaria
+          y consultoría técnica en sectores como energía, telecomunicaciones y
+          sistemas organizacionales. Sin embargo, mi mayor logro ha sido
+          integrar esa estructura con el bienestar.
+        </p>
+
+        <!-- Bloque destacado (quote) -->
         <div
-          class="absolute -top-6 -left-6 w-full h-full border-2 border-dorado rounded-4xl"
+          class="bg-crema p-8 rounded-[30px] border-l-4 border-terracota italic shadow-sm"
         >
+          <p class="font-medium text-piedra mb-4">¿Qué es Artespazios?</p>
+          "Artespazios nace de integrar mi formación técnica con mi propio camino
+          personal: ordenar espacios, estabilizar procesos, reducir ansiedad, recuperar
+          enfoque y reconstruir bienestar desde lo esencial. Es un sistema que combina
+          ingeniería y bienestar emocional para transformar tus espacios, tus decisiones
+          y tu manera de vivir."
         </div>
-        <img
-          src={imageUrl}
-          class="relative z-10 rounded-4xl grayscale hover:grayscale-0 transition-all duration-700 w-full"
-          alt={imageAlt}
-        />
+
+        <p>
+          Hoy acompaño a personas y familias a crear sistemas claros,
+          funcionales y sostenibles que les devuelvan control, calma y
+          dirección.
+        </p>
       </div>
     </div>
 
-    <!-- Columna derecha - Información personal -->
-    <div class="md:w-1/2">
-      <h2 class="text-5xl font-bold mb-8 text-black/70">{title}</h2>
-      <p class="text-lg mb-6 leading-relaxed">
-        Soy <span class="text-terracota font-bold">{name}</span>, {role} con {
-          experience
-        }.
-      </p>
-      <p class="text-piedra/80 mb-8 leading-relaxed">
-        {description}
-      </p>
-
-      <!-- Grid de credenciales -->
-      <div class="grid grid-cols-2 gap-4 border-t border-dorado pt-8">
-        {
-          credentials.map((credential) => (
-            <div class="text-xs font-bold uppercase tracking-tighter text-piedra/80">
-              {credential.text}
-            </div>
-          ))
-        }
+    <!-- Columna derecha - Foto (en móvil aparece arriba) -->
+    <div class="order-1 md:order-2">
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+          alt="Rafaela Sallustio"
+          class="rounded-4xl shadow-2xl relative z-10 grayscale hover:grayscale-0 transition duration-700"
+        />
+        <div
+          class="absolute -top-6 -right-6 w-full h-full border-2 border-dorado rounded-4xl"
+        >
+        </div>
       </div>
     </div>
   </div>
