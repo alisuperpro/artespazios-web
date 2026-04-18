@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  --color-crema: #f7f3ee;
+  --color-terracota: #c57a63;
+  --color-dorado: #d9c7a3;
+  --color-piedra: #4a4a4a;
+  --color-beige: #e8dcc8;
+  --font-display: "Poppins", sans-serif;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}

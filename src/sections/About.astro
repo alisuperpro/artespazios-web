@@ -1,0 +1,78 @@
+---
+// SobreMi.astro con props
+export interface Credential {
+  text: string
+}
+
+export interface Props {
+  id?: string
+  name?: string
+  title?: string
+  role?: string
+  experience?: string
+  description?: string
+  imageUrl?: string
+  imageAlt?: string
+  credentials?: Credential[]
+}
+
+const {
+  id = "sobre-mi",
+  name = "Rafaela Sallustio",
+  title = "Sobre mí",
+  role = "ingeniera industrial",
+  experience = "más de 20 años de experiencia en planificación y sistemas organizacionales",
+  description = "Artespazios nace de integrar mi formación técnica con mi propio camino personal: ordenar espacios, estabilizar procesos y reconstruir bienestar desde lo esencial.",
+  imageUrl = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800",
+  imageAlt = "Rafaela Sallustio - Fundadora de Artespazios",
+  credentials = [
+    { text: "Ingeniería Industrial" },
+    { text: "Planificación Técnica" },
+    { text: "Docencia Universitaria" },
+    { text: "Sistemas de Orden" },
+  ],
+} = Astro.props
+---
+
+<section id={id} class="py-24 px-6 max-w-7xl mx-auto">
+  <div class="flex flex-col md:flex-row gap-16 items-center">
+    <!-- Columna izquierda - Foto con marco decorativo -->
+    <div class="md:w-1/2">
+      <div class="relative">
+        <div
+          class="absolute -top-6 -left-6 w-full h-full border-2 border-dorado rounded-4xl"
+        >
+        </div>
+        <img
+          src={imageUrl}
+          class="relative z-10 rounded-4xl grayscale hover:grayscale-0 transition-all duration-700 w-full"
+          alt={imageAlt}
+        />
+      </div>
+    </div>
+
+    <!-- Columna derecha - Información personal -->
+    <div class="md:w-1/2">
+      <h2 class="text-5xl font-bold mb-8 text-black/70">{title}</h2>
+      <p class="text-lg mb-6 leading-relaxed">
+        Soy <span class="text-terracota font-bold">{name}</span>, {role} con {
+          experience
+        }.
+      </p>
+      <p class="text-piedra/80 mb-8 leading-relaxed">
+        {description}
+      </p>
+
+      <!-- Grid de credenciales -->
+      <div class="grid grid-cols-2 gap-4 border-t border-dorado pt-8">
+        {
+          credentials.map((credential) => (
+            <div class="text-xs font-bold uppercase tracking-tighter text-piedra/80">
+              {credential.text}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

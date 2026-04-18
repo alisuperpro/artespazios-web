@@ -1,32 +1,42 @@
 ---
-const questions = [
-  "¿Te has sentido abrumado por el desorden en tu entorno y en tu mente?",
-  "¿Te has dado cuenta que el dinero se escapa sin un plan claro?",
-  "¿Has pensado que necesitas herramientas para manejar tu ansiedad?",
-]
+
 ---
 
-<section
-  class="bg-gradient-to-b from-[#f0f2ff] to-white pt-40 pb-24 px-6 text-center"
->
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-      Transforma tu espacio, <span class="text-indigo-600">tu identidad</span> y tu
-      vida
-    </h1>
+<section class="pt-40 pb-20 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+    <!-- Columna izquierda - Contenido textual -->
+    <div class="md:w-3/5">
+      <h1 class="text-5xl md:text-7xl font-bold mb-8 text-black/70">
+        Claridad, orden y bienestar desde tus
+        <span class="text-terracota">espacios, procesos y vida</span>
+      </h1>
+      <p class="text-xl text-piedra/80 mb-10 max-w-xl leading-relaxed">
+        Un sistema técnico-emocional que integra organización, planificación y
+        bienestar para ayudarte a recuperar control, enfoque y estabilidad.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button
+          class="bg-terracota text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-terracota/20 hover:opacity-90 transition-opacity"
+        >
+          Agenda tu diagnóstico inicial
+        </button>
+        <button
+          class="border-2 border-dorado text-terracota px-8 py-4 rounded-full font-bold hover:bg-dorado/10 transition-colors"
+        >
+          Descarga la guía de claridad
+        </button>
+      </div>
+    </div>
 
-    <p class="text-xl text-gray-500 mb-10 italic">
-      "Un camino guiado para descubrir lo que necesitas hoy"
-    </p>
-
-    <div class="grid md:grid-cols-3 gap-4 mt-16">
-      {
-        questions.map((question) => (
-          <div class="p-6 bg-white/50 backdrop-blur-sm rounded-2xl border border-indigo-50 italic text-sm shadow-sm flex items-center justify-center">
-            {question}
-          </div>
-        ))
-      }
+    <!-- Columna derecha - Imagen -->
+    <div class="md:w-2/5">
+      <div class="bg-white rounded-4xl p-4 shadow-xl border border-beige">
+        <img
+          src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80&w=800"
+          class="rounded-4xl w-full h-125 object-cover"
+          alt="Espacio ordenado que transmite bienestar y claridad"
+        />
+      </div>
     </div>
   </div>
 </section>

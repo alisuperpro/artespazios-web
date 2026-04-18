@@ -4,8 +4,8 @@ import logo from "../assets/logo.png"
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="py-12 border-t border-gray-100 bg-white">
-  <div class="max-w-7xl mx-auto px-6 md:px-10 text-center">
+<footer class="py-12 border-t border-beige text-center bg-white">
+  <div class="max-w-7xl mx-auto px-6">
     <a
       href="/"
       class="flex items-center justify-center transition-opacity hover:opacity-80"
@@ -18,19 +18,43 @@ const currentYear = new Date().getFullYear()
       />
     </a>
 
-    <p class="text-gray-400 text-sm font-medium tracking-wide">
-      © {currentYear} Miami Lifestyle & Business Consulting.
-      <span class="block md:inline mt-2 md:mt-0"
-        >Todos los derechos reservados.</span
-      >
+    <!-- Información de contacto -->
+    <p class="text-xs text-piedra/50 mb-6">
+      hola@artespazios.com | Miami & Worldwide
     </p>
 
+    <!-- Enlaces legales -->
     <div
-      class="flex justify-center gap-6 mt-6 text-[10px] uppercase tracking-[0.2em] font-bold text-gray-300"
+      class="flex justify-center gap-6 text-[10px] font-bold text-dorado uppercase tracking-widest"
     >
-      <a href="#" class="hover:text-indigo-600 transition-colors">Privacidad</a>
-      <a href="#" class="hover:text-indigo-600 transition-colors">Términos</a>
-      <a href="#" class="hover:text-indigo-600 transition-colors">Cookies</a>
+      <a href="#" class="hover:text-terracota transition-colors duration-300"
+        >Términos</a
+      >
+      <a href="#" class="hover:text-terracota transition-colors duration-300"
+        >Privacidad</a
+      >
+      <a href="#" class="hover:text-terracota transition-colors duration-300"
+        >Políticas</a
+      >
     </div>
   </div>
 </footer>
+
+<style is:global>
+  /* Colores personalizados */
+  .bg-white {
+    background-color: #ffffff;
+  }
+  .border-beige {
+    border-color: #e8dcc8;
+  }
+  .text-piedra {
+    color: #4a4a4a;
+  }
+  .text-dorado {
+    color: #d9c7a3;
+  }
+  .text-terracota {
+    color: #c57a63;
+  }
+</style>
