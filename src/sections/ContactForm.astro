@@ -77,22 +77,25 @@ const sectors = [
       </div>
 
       <!-- Columna derecha - Formulario -->
-      <form class="space-y-4" onsubmit="event.preventDefault()">
+      <form class="space-y-4" id="contact-form">
         <div class="grid md:grid-cols-2 gap-4">
           <input
             type="text"
             placeholder="Nombre completo"
             class="w-full px-6 py-4 rounded-2xl bg-white border border-beige shadow-sm focus:ring-2 focus:ring-terracota/30 focus:border-terracota focus:bg-white outline-none transition-all placeholder:text-piedra/40 text-piedra"
+            name="name"
           />
           <input
             type="email"
             placeholder="Email"
             class="w-full px-6 py-4 rounded-2xl bg-white border border-beige shadow-sm focus:ring-2 focus:ring-terracota/30 focus:border-terracota focus:bg-white outline-none transition-all placeholder:text-piedra/40 text-piedra"
+            name="email"
           />
         </div>
 
         <select
           class="w-full px-6 py-4 rounded-2xl bg-white border border-beige shadow-sm focus:ring-2 focus:ring-terracota/30 focus:border-terracota outline-none transition-all text-piedra/70 appearance-none cursor-pointer hover:border-terracota/30"
+          name="service"
         >
           <option disabled selected>Selecciona un servicio</option>
           {
@@ -108,10 +111,11 @@ const sectors = [
           placeholder="¿Cómo podemos ayudarte?"
           rows="4"
           class="w-full px-6 py-4 rounded-2xl bg-white border border-beige shadow-sm focus:ring-2 focus:ring-terracota/30 focus:border-terracota outline-none transition-all placeholder:text-piedra/40 text-piedra resize-none"
-        ></textarea>
+          name="description"></textarea>
 
         <button
-          class="w-full bg-terracota text-white py-5 rounded-2xl font-bold text-lg hover:bg-piedra transition-all shadow-lg shadow-terracota/20 active:scale-[0.98] hover:shadow-xl"
+          class="w-full bg-terracota text-white py-5 rounded-2xl font-bold text-lg hover:bg-piedra transition-all shadow-lg shadow-terracota/20 active:scale-[0.98] hover:shadow-xl cursor-pointer"
+          type="submit"
         >
           Enviar solicitud
         </button>
@@ -123,3 +127,37 @@ const sectors = [
     </div>
   </div>
 </section>
+
+<script>
+  const $form = document.querySelector("#contact-form") as HTMLFormElement
+
+  $form?.addEventListener("submit", async (ev) => {
+    ev.preventDefault()
+    const formData = new FormData(ev.target as HTMLFormElement)
+
+    const name = formData.get("name")
+    const email = formData.get("email")
+    const service = formData.get("service")
+    const description = formData.get("description")
+
+    const res = await fetch("/api/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        service,
+        description,
+      }),
+    })
+
+    if (res.ok) {
+      alert("Enviado")
+      $form.reset()
+    } else {
+      alert("Hubo un error")
+    }
+  })
+</script>
