@@ -1,6 +1,13 @@
 ---
 import "../styles/global.css"
 import "@fontsource/poppins"
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title = "Artespazios", description = "" } = Astro.props
 ---
 
 <!doctype html>
@@ -9,9 +16,12 @@ import "@fontsource/poppins"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
-    <title>Artespazios</title>
+    <title>{title}</title>
 
-    <meta name="description" content="" />
+    <meta
+      name="description"
+      content="Recupera claridad, orden y bienestar con Artespazios: un sistema técnico-emocional para transformar tus espacios, procesos y decisiones."
+    />
 
     <meta property="og:title" content="Artespazios" />
     <meta property="og:site_name" content="Artespazios" />
